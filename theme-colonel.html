@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- THEME BY ECTOPHAGE
+        ECTOPHAGE.TUMBLR.COM
+        FEEL FREE TO EDIT, MODIFY, USE AS A BASE, ETC.
+        BUT DO NOT REMOVE THE CREDIT! -->
+
+
+    <meta charset="utf-8">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}">
+    <link rel="stylesheet" href="application.css" media="screen">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <!-- VARIABLES -->
+
+    <meta name="color:background left" content="#3FB6A8"/>
+    <meta name="color:background right" content="#7ED386"/>
+
+
+    <meta name="color:accent" content="#3FB6A8"/>
+
+    <meta name="color:bold and italics" content="#000000"/>
+
+    <meta name="color:text" content="#000000"/>
+    <meta name="color:link hover" content="#000000"/>
+    <meta name="color:link" content="#7ED386"/>
+
+    <meta name="text:tag decoration" content="<i class='fas fa-tag'></i>"/>
+
+    <meta name="text:sidebar link 1" content="/"/>
+    <meta name="text:sidebar link 1 text" content="home"/>
+    <meta name="text:sidebar link 2" content="/ask"/>
+    <meta name="text:sidebar link 2 text" content="ask"/>
+    <meta name="text:sidebar link 3" content="/submit"/>
+    <meta name="text:sidebar link 3 text" content="submit"/>
+    <meta name="text:sidebar link 4" content="/archive"/>
+    <meta name="text:sidebar link 4 text" content="archive"/>
+    <meta name="text:sidebar link 5" content=""/>
+    <meta name="text:sidebar link 5 text" content=""/>
+    <meta name="text:sidebar link 6" content=""/>
+    <meta name="text:sidebar link 6 text" content=""/>
+
+    <!-- FONT AWESOME IMPORT -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+    <title>{Title}</title>
+    <style type="text/css">
+
+
+        /* MAKE EVERYTHING BORDER-BOX BC MARGINS ARE DUMB */
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            transition: 0.2s !important;
+        }
+
+        /* SCROLLBAR */
+
+        ::-webkit-scrollbar {
+            width:7px;
+            height:7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background:transparent;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background:transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background:{color:accent};
+        background-clip:padding-box;
+        border:2px solid rgba(0, 0, 0, 0);
+        }
+
+        /* BASIC STUFF */
+
+        body {
+        background: linear-gradient(to right, {color:background left}, {color:background right});
+        font-family: Helvetica;
+        color:{color:text};
+        font-size:.8em;
+        }
+
+        p {
+            padding: 5px 0px;
+        }
+
+        a{
+            text-decoration:none;
+        color:{color:link};
+        }
+
+        a:hover{
+        color:{color:link hover};
+        }
+
+        blockquote{
+            border-left:1px solid #ccc;
+            padding: 0 0 0 10px;
+            margin-left:10px;
+        }
+
+        i, em{
+            font-weight:100;
+            font-style:italic;
+        color:{color:bold and italics};
+        }
+
+        b, strong{
+            font-weight:700 !important;
+        color:{color:bold and italics};
+        }
+
+        /* MAKE ABSOLUTELY EVERYTHING THE SAME SIZE */
+
+        small{
+            font-size:1em;
+        }
+
+        sub{
+            font-size:1em;
+        }
+
+        /* SIDEBAR STUFF */
+
+        #sidebar {
+        background: {color:accent};
+        width: 160px;
+        height: 525px;
+        position: absolute;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        top: 100px;
+        left: 100px;
+        z-index: 1000;
+        }
+
+        #sidebar_content {
+            background: #fff;
+            margin: 5px 10px 2px 10px;
+        color:{color:text};
+        font-size: .8em;
+        padding: 10px;
+        text-align: center;
+        margin-top: 90%;
+        }
+
+        #sidebar_links {
+            font-size: .8em;
+            text-align: center;
+            margin-left: 8px;
+        }
+
+        .sidebar_link {
+            padding: 10px 2px;
+            margin: 2px;
+            background: #fff;
+            width: 68px;
+            float: left;
+            text-decoration: none;
+        color:{color:text};
+        text-align: center;
+        }
+
+        .sidebar_link:hover {
+        color:{color:link};
+        }
+
+        /* PAGINATION */
+
+        #pagination{
+            background:rgba(0,0,0,0);
+            width:100%;
+            color: #ffffff;
+            text-shadow: 0 2px 2px rgba(0,0,0,.4);;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top:113px;
+        }
+
+        #pagination a{
+            color:#fff !important;
+        }
+
+        /* font awesome smh */
+
+        #pagination i{
+            color:#fff !important;
+        }
+
+        /* CONTENT STUFF */
+
+        #content_container {
+            background: #fff;
+            width: 770px;
+            height: 490px;
+            position: absolute;
+            top: 115px;
+            left: 80px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            font-size: .8em;
+        }
+
+        #content{
+            background:transparent;
+            position:absolute;
+            right:0;
+            width:580px;
+            height:100%;
+            overflow-y:scroll;
+            overflow-x:hidden;
+            padding:10px;
+        }
+
+        /* PHOTOS & PHOTOSETS */
+
+        .photoset {
+            padding:5px;
+            width:100%;
+            text-align:center;
+            margin:auto;
+        }
+
+        .pix img {
+            width:100%;
+            display:block;
+
+        }
+
+        .tmblr-full img {
+            width:100%;
+            display:inline-block;
+            height:auto;
+            margin:10px;
+
+        }
+
+        .txt img {
+            margin:8px 0;
+        }
+
+
+        /* FOOTER */
+
+        .footer{
+            border-top:1px solid #bbb;
+            background:#fff;
+            padding:5px 0 30px 0;
+            display:block;
+        color:{color:text};
+        }
+
+        .date, .notes{
+            font-size:1.2em;
+        color:{color:text};
+        text-transform:uppercase;
+        font-weight:300;
+        }
+
+        .notes{
+            float:right;
+        }
+
+        .tags a{
+        color:{color:link};
+        }
+
+        .tags a:hover{
+        color:{color:link hover};
+        }
+
+        /* CREDIT - PLEASE DON'T EDIT THIS */
+
+        #credit{
+        color:{color:accent};
+        position:absolute;
+        bottom:5px;
+        right:5px;
+        background:#fff;
+        padding:5px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div id="sidebar">
+    <div id="sidebar_content">
+        <p>{description}</p>
+    </div>
+
+    <div id="sidebar_links">
+        <a href="{text:sidebar link 1}" class="sidebar_link">{text:sidebar link 1 text}</a>
+        <a href="{text:sidebar link 2}" class="sidebar_link">{text:sidebar link 2 text}</a>
+        <a href="{text:sidebar link 3}" class="sidebar_link">{text:sidebar link 3 text}</a>
+        <a href="{text:sidebar link 4}" class="sidebar_link">{text:sidebar link 4 text}</a>
+        <a href="{text:sidebar link 5}" class="sidebar_link">{text:sidebar link 5 text}</a>
+        <a href="{text:sidebar link 6}" class="sidebar_link">{text:sidebar link 6 text}</a>
+    </div>
+
+    {block:Pagination}
+    <div id="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}"><i class="fas fa-angle-left"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;{/block:PreviousPage}
+        {block:NextPage}<a href="{NextPage}"><i class="fas fa-angle-right"></i></a>{/block:NextPage}
+    </div><!-- PAGINATION -->
+    {/block:Pagination}
+
+</div> <!-- SIDEBAR CONTENT -->
+</div> <!-- SIDEBAR -->
+
+
+<!-- BLOG CONTENT CONTAINER -->
+<div id="content_container">
+    <div id="content">
+
+        <section class="posts">
+            {block:Posts}
+            <div class="entry {block:IndexPage}b{select:post size}{/block:IndexPage}{block:PermalinkPage}b{select:permalink post size}{/block:PermalinkPage}" id="{PostID}">
+
+                {block:Text}<div class="txt">{block:Title}<h3 style="margin-top:0;">{Title}</h3>{/block:Title}{Body}</div>{/block:Text}
+
+                {block:Link}<div class="txt"><a href="{URL}" class="link" {Target}><h3 style="margin-top:0;">{Name}</h3></a>
+                {block:Description}{Description}{/block:Description}</div>{/block:Link}
+
+                {block:Photo}<center><div class="pix">{LinkOpenTag}<img src="{PhotoURL-HighRes}">{LinkCloseTag}</div></center>
+
+                {block:Caption}<div class="cap">{Caption}</div>{/block:Caption}{/block:Photo}
+
+
+                <!-- PHOTOSET -->
+
+                {block:Photoset}
+                <div class="set"><center><div class="pxu"><div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">{block:Photos}
+                    <div class="photo-data"><div class="pxu-photo"><img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></div><a class="tumblr-box" rel="post-{PostID}" href="{PhotoURL-HighRes}"></a></div>{/block:Photos}</div></div></center></div>
+                {/block:Photoset}
+
+                <!-- / PHOTOSET -->
+
+                <!-- QUOTE POST -->
+
+                {block:Quote}<div class="txt"><center><h1>"{Quote}"</h1></center><br>{block:Source}– {Source}{/block:Source}</p></div>{/block:Quote}
+
+                <!-- /QUOTE POST -->
+
+                {block:Chat}{block:Title}<h3>{Title}</h3>{/block:Title}
+
+                <div class="txt"><div style="padding:10px 0px 10px 0px">{block:Lines}<li style="list-style-type:none;">{block:Label}<b>{Label}</b>{/block:Label} {Line}</li>{/block:Lines}</ul></div></div>{/block:Chat}
+
+                {block:Video}<div class="video"><center>{Video-500}</center></div>
+
+                {block:Caption}<div class="cap">{Caption}</div>{/block:Caption}{/block:Video}
+
+                {block:Audio}<div class="audio">
+                <div class="button"></div>
+                {block:AudioPlayer}{block:ifblackaudioplayer}{AudioPlayerBlack}{/block:ifblackaudioplayer}{block:ifnotblackaudioplayer}{AudioPlayerWhite}{/block:ifnotblackaudioplayer}{/block:AudioPlayer}
+                <div class="music"><center><b style="font-size:1.2em; text-transform:uppercase; line-height:1em;">{block:TrackName}{TrackName}{/block:TrackName}</b>{block:Artist} {Artist}{/block:Artist}{block:Album},
+                    {Album}
+                    {/block:Album}</center></div>
+
+                {block:Caption}<div class="cap">{Caption}</div>{/block:Caption}</div>{/block:Audio}
+
+                {block:ContentSource}
+                <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+                width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+                {/block:SourceLogo}
+                {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+                {/block:ContentSource}
+
+                <!-- {block:NoRebloggedFrom}
+                {block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+                {/block:NoRebloggedFrom} -->
+
+                {block:Answer}<table><tbody><tr><td><img src="{AskerPortraitURL-40}"></img></td><td><b style="text-transform:uppercase;">{Asker} asked:</b> {Question}</td></tr></tbody></table>
+                <div class="answer">{Answer}</div>
+                {/block:Answer}</div>
+
+
+            <!-- FOOTER -->
+
+            {block:Date}
+            <div class="footer">
+                <a href="{Permalink}" class="date"><strong>{DayOfMonthWithZero}</strong> {Month}</a>
+                <a href="{Permalink}" class="notes">NOTES <strong>{NoteCount}</a></strong>
+
+                <div class="tags">{block:PermalinkPage}{block:RebloggedFrom}<a href="{ReblogParentURL}">VIA</a> / <a href="{ReblogRootURL}">SOURCE</a> {/block:RebloggedFrom}{/block:PermalinkPage}{block:HasTags}{block:Tags}{text:tag decoration} <a href="{TagURL}">{Tag}</a> &nbsp;{/block:Tags}{/block:HasTags}</div>
+            </div><!-- FOOTER -->
+
+
+            <style type="text/css">.content .entry {border-radius:0;}</style>
+            {/block:Date}
+
+            {/block:Posts}{block:PostNotes}<div class="permalink">{PostNotes}</div>{/block:PostNotes}
+        </section>
+
+        <!-- MAKE PHOTOSETS WORK - FROM http://gukthemes.com/post/149193631486/tutorial-540pxresponsive-photosets -->
+        <link href="//static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
+        <script src="//static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
+        <link href="//static.tumblr.com/wupwnyt/qWVoc4phj/resizing.css" rel="stylesheet" type="text/css"/>
+
+        <script>
+            // PXU Photoset Script by Pixel Union
+            $(document).ready(function(){
+                $('.photo-slideshow').pxuPhotoset({
+                    lightbox:true,
+                    rounded:false,
+                    gutter:'0px',
+                    borderRadius:'0px',
+                    photoset:'.photo-slideshow',
+                    photoWrap:'.photo-data',
+                    photo:'.pxu-photo'
+                });
+            });
+        </script>
+
+
+    </div><!-- CONTENT -->
+</div><!-- CONTENT CONTAINER -->
+
+<div id="credit"><a href="https://ectophage.tumblr.com"><i class='fas fa-code'></i></a></div>
+</body>
+</html>
+
