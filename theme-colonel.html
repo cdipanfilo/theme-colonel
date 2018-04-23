@@ -19,15 +19,15 @@
     <meta name="color:background right" content="#7ED386"/>
 
 
-    <meta name="color:accent" content="#7ED386"/>
+    <meta name="color:accent" content="#3FB6A8"/>
 
     <meta name="color:bold and italics" content="#000000"/>
 
     <meta name="color:text" content="#000000"/>
     <meta name="color:link hover" content="#000000"/>
-    <meta name="color:link" content="#3FB6A8"/>
+    <meta name="color:link" content="#7ED386"/>
 
-    <meta name="text:tag decoration" content="<i class='fas fa-tag'></i>"/>
+    <meta name="text:tag decoration" content="fas fa-hashtag"/>
 
     <meta name="text:sidebar link 1" content="/"/>
     <meta name="text:sidebar link 1 text" content="home"/>
@@ -85,11 +85,11 @@
         background: linear-gradient(to right, {color:background left}, {color:background right});
         font-family: Helvetica;
         color:{color:text};
-        font-size:.8em;
+        font-size:.9rem;
         }
 
         p {
-            padding: 5px 0px;
+            padding: 5px 0;
         }
 
         a{
@@ -109,12 +109,10 @@
 
         i, em{
             font-weight:100;
-            font-style:italic;
         color:{color:bold and italics};
         }
 
         b, strong{
-            font-weight:700 !important;
         color:{color:bold and italics};
         }
 
@@ -393,7 +391,7 @@
                 <a href="{Permalink}" class="date"><strong>{DayOfMonthWithZero}</strong> {Month}</a>
                 <a href="{Permalink}" class="notes">NOTES <strong>{NoteCount}</a></strong>
 
-                <div class="tags">{block:PermalinkPage}{block:RebloggedFrom}<a href="{ReblogParentURL}">VIA</a> / <a href="{ReblogRootURL}">SOURCE</a> {/block:RebloggedFrom}{/block:PermalinkPage}{block:HasTags}{block:Tags}{text:tag decoration} <a href="{TagURL}">{Tag}</a> &nbsp;{/block:Tags}{/block:HasTags}</div>
+                <div class="tags">{block:PermalinkPage}{block:RebloggedFrom}<a href="{ReblogParentURL}">VIA</a> / <a href="{ReblogRootURL}">SOURCE</a> {/block:RebloggedFrom}{/block:PermalinkPage}{block:HasTags}{block:Tags}<i class="{text:tag decoration}"></i> <a href="{TagURL}">{Tag}</a> &nbsp;{/block:Tags}{/block:HasTags}</div>
             </div><!-- FOOTER -->
 
 
@@ -427,8 +425,6 @@
     </div><!-- CONTENT -->
 </div><!-- CONTENT CONTAINER -->
 
-<!-- CREDIT! DO NOT REMOVE OR ALTER IN ANY WAY. -->
 <div id="credit"><a href="https://ectophage.tumblr.com"><i class='fas fa-code'></i></a></div>
 </body>
 </html>
-
