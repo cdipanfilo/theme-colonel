@@ -2,289 +2,451 @@
 <html lang="en">
 <head>
 
-    <!-- THEME BY ECTOPHAGE
-        ECTOPHAGE.TUMBLR.COM
-        FEEL FREE TO EDIT, MODIFY, USE AS A BASE, ETC.
-        BUT DO NOT REMOVE THE CREDIT! -->
-
+    <!--   FUN HEADER STUFF; DON'T TOUCH THIS -->
 
     <meta charset="utf-8">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}">
+    <link rel="shortcut icon" href="{Favicon}" />
     <link rel="stylesheet" href="application.css" media="screen">
 
+    <!-- LITTLE THINGS -->
+    <meta name="color:body background" content="#f3f3f3"/>
+    <meta name="color:accent" content="#ff9bbf"/>
+    <meta name="color:accent dark" content="#cc76a9"/>
+    <meta name="color:text" content="#555"/>
+    <meta name="color:bold and italic" content="#000000"/>
+    <meta name="text:font awesome tag decoration" content="fas fa-hashtag"/>
+    
+    <!-- NAV LINKS -->
+    <meta name="text: link 1" content=""/>
+    <meta name="text: link 1 text" content=""/>
+    <meta name="text: link 2" content=""/>
+    <meta name="text: link 2 text" content=""/>
+    <meta name="text: link 3" content=""/>
+    <meta name="text: link 3 text" content=""/>
+    <meta name="text: link 4" content=""/>
+    <meta name="text: link 4 text" content=""/>
+    <meta name="text: link 5" content=""/>
+    <meta name="text: link 5 text" content=""/>
+
+    <!-- THIS MAKES PHOTOSETS WORK, DON'T FUCK WITH IT
+             SOURCE: http://gukthemes.com/post/149193631486/tutorial-540pxresponsive-photosets -->
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <!-- VARIABLES -->
+    <link href="//static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
+    <script src="//static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
+    <link href="//static.tumblr.com/wupwnyt/qWVoc4phj/resizing.css" rel="stylesheet" type="text/css"/>
 
-    <meta name="color:background left" content="#3FB6A8"/>
-    <meta name="color:background right" content="#7ED386"/>
+    <script>
+        // PXU Photoset Script by Pixel Union
+        $(document).ready(function(){
+            $('.photo-slideshow').pxuPhotoset({
+                lightbox:true,
+                rounded:false,
+                gutter:'0px',
+                borderRadius:'0px',
+                photoset:'.photo-slideshow',
+                photoWrap:'.photo-data',
+                photo:'.pxu-photo'
+            });
+        });
+    </script> <!-- / PHOTOSETS STUFF -->
 
+    <!-- FONT AWESOME IMPORT
+         FIND PRETTY ICONS FOR YOUR TAGS HERE https://fontawesome.com/icons?d=gallery -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <meta name="color:accent" content="#3FB6A8"/>
+    <!-- PLUG SCRIPTS IN HERE IF YOU NEED THEM -->
 
-    <meta name="color:bold and italics" content="#000000"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto+Condensed|Roboto:400,700" rel="stylesheet">
 
-    <meta name="color:text" content="#000000"/>
-    <meta name="color:link hover" content="#000000"/>
-    <meta name="color:link" content="#7ED386"/>
+    <title>{title}</title>
 
-    <meta name="text:tag decoration" content="fas fa-hashtag"/>
+    <style>
 
-    <meta name="text:sidebar link 1" content="/"/>
-    <meta name="text:sidebar link 1 text" content="home"/>
-    <meta name="text:sidebar link 2" content="/ask"/>
-    <meta name="text:sidebar link 2 text" content="ask"/>
-    <meta name="text:sidebar link 3" content="/submit"/>
-    <meta name="text:sidebar link 3 text" content="submit"/>
-    <meta name="text:sidebar link 4" content="/archive"/>
-    <meta name="text:sidebar link 4 text" content="archive"/>
-    <meta name="text:sidebar link 5" content=""/>
-    <meta name="text:sidebar link 5 text" content=""/>
-    <meta name="text:sidebar link 6" content=""/>
-    <meta name="text:sidebar link 6 text" content=""/>
+        /* ----------------------------------- DUMB TWEAKS ----------------------------------- */
 
-    <!-- FONT AWESOME IMPORT -->
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-    <title>{Title}</title>
-    <style type="text/css">
-
-
-        /* MAKE EVERYTHING BORDER-BOX BC MARGINS ARE DUMB */
-        *,
-        *:before,
-        *:after {
+        /* fix padding & margin issues; make smooth transitions */
+        * {
             box-sizing: border-box;
-            transition: 0.2s !important;
+            transition: .2s;
         }
 
-        /* SCROLLBAR */
-
-        ::-webkit-scrollbar {
-            width:7px;
-            height:7px;
+        /* make all text the same size (bc double plus small text is gross) */
+        small,
+        sub,
+        sup {
+            font-size: 1em;
         }
 
-        ::-webkit-scrollbar-track {
-            background:transparent;
+        .about{
+            top:1.5rem;
+            background: {color:accent};
+            color: #ffffff !important;
+            padding: .5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing:0;
+            margin:.5rem 0 .5rem 0;
         }
 
-        ::-webkit-scrollbar-corner {
-            background:transparent;
+        /* KEEP THIS SHIT ABOVE THE TOP BAR */
+        .tmblr-iframe--unified-controls{
+            z-index:9999 !important;
         }
 
-        ::-webkit-scrollbar-thumb {
-        background:{color:accent};
-        background-clip:padding-box;
-        border:2px solid rgba(0, 0, 0, 0);
-        }
-
-        /* BASIC STUFF */
+        /* ----------------------------------- BASIC FORMATTING ----------------------------------- */
 
         body {
-        background: linear-gradient(to right, {color:background left}, {color:background right});
-        font-family: Helvetica;
-        color:{color:text};
-        font-size:.9rem;
+            background: {color:body background};
+            font: .8rem 'Roboto', sans serif;
+            color: {color:text};
+            overflow-x: hidden;
+        }
+
+        ::selection{
+            background:{color:accent dark};
+            color:#fff;
         }
 
         p {
             padding: 5px 0;
         }
 
-        a{
-            text-decoration:none;
-        color:{color:link};
+        blockquote {
+            border-left: 3px solid {color:accent};
+            padding: 0 0 0 10px;
+            margin: 0 0 0 10px;
+        }
+
+        i,
+        em {
+            color: {color:bold and italic};
+        }
+
+        b,
+        strong {
+            color: {color:bold and italic};
+            font-weight:700;
+        }
+
+        h1{
+            text-align:left;
+            text-transform:uppercase;
+            font-weight:700;
+            margin: 0;
+            color:{color:accent};
+        }
+
+        h2{
+            text-transform:uppercase;
+            font-size:.9rem;
+            color:{color:accent};
+        }
+
+        h3{
+            text-transform:uppercase;
+            font-size:.9rem;
+            color:{color:accent dark};
+        }
+
+        pre{
+            background:#333;
+            color:#eee;
+            padding:.5rem;
+            font-size:.9rem;
+        }
+
+        /* ----------------------------------- CONTAINER SETUP ----------------------------------- */
+
+
+        /* this is so jank and I hate it */
+        .posts{
+            margin: 2rem auto;
+            width:540px;
+        }
+
+        .entry{
+            width: 540px;
+            background: #fff;
+            box-shadow:0 3px 3px rgba(0,0,0,.2);
+            padding:1rem;
+            border-radius:.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color:{color:accent};
         }
 
         a:hover{
-        color:{color:link hover};
+            color:{color:accent dark};
         }
 
-        blockquote{
-            border-left:1px solid #ccc;
-            padding: 0 0 0 10px;
-            margin-left:10px;
+
+        /* ----------------------------------- SIDEBAR ----------------------------------- */
+
+
+        /* --- TOP NAVIGATION ---------------- */
+        .navigation {
+            font: .8rem 'Roboto Condensed', sans serif;
+            text-transform: uppercase;
+            background: {color:body background};
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
         }
 
-        i, em{
-            font-weight:100;
-        color:{color:bold and italics};
+        .bottom-gradient {
+            background: linear-gradient(to left, {color:accent}, {color:accent dark});
+            width: 100vw;
+            height: .5rem;
+            margin: 0;
         }
 
-        b, strong{
-        color:{color:bold and italics};
+        a.nav {
+            color: {color:accent dark};
+            padding: 0 1rem;
+            line-height: 3rem;
         }
 
-        /* MAKE ABSOLUTELY EVERYTHING THE SAME SIZE */
-
-        small{
-            font-size:1em;
+        a.nav:hover {
+            color: {color:accent};
         }
 
-        sub{
-            font-size:1em;
+        /* --- HEADER ------------------------ */
+        .header {
+            background: linear-gradient(to left, {color:accent}, {color:accent dark});
+            width: 100vw;
+            height: 15rem;
+            margin-top: 3.5rem;
+            margin-left: -.5rem;
+            overflow: hidden;
         }
 
-        /* SIDEBAR STUFF */
-
-        #sidebar {
-        background: {color:accent};
-        width: 160px;
-        height: 525px;
-        position: absolute;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-        top: 100px;
-        left: 100px;
-        z-index: 1000;
-        }
-
-        #sidebar_content {
-            background: #fff;
-            margin: 5px 10px 2px 10px;
-        color:{color:text};
-        font-size: .8em;
-        padding: 10px;
-        text-align: center;
-        margin-top: 90%;
-        }
-
-        #sidebar_links {
-            font-size: .8em;
+        .header h1, .header h2 {
             text-align: center;
-            margin-left: 8px;
+            margin: 0;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.8);
         }
 
-        .sidebar_link {
-            padding: 10px 2px;
-            margin: 2px;
-            background: #fff;
-            width: 68px;
-            float: left;
-            text-decoration: none;
-        color:{color:text};
-        text-align: center;
+        .header h1 {
+            padding-top: 5.5rem;
+            font: 2rem 'Roboto Condensed', sans serif;
+            font-weight: 300;
+            letter-spacing: -1px;
         }
 
-        .sidebar_link:hover {
-        color:{color:link};
+        .header h2 {
+            font-size: .8rem;
+            font-weight: 100;
+            letter-spacing: 1px;
+        }
+        /* ------------------ SCROLLBAR ------------------ */
+
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
         }
 
-        /* PAGINATION */
+        ::-webkit-scrollbar-track,
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: {color:accent};
+            background-clip:padding-box;
+            border:2px solid rgba(0, 0, 0, 0);
+        }
+
+        /* ------------------ FOOTER ------------------ */
+
+        .footer{
+            background:{color:accent};
+            color:#fff;
+            text-align: right;
+            box-shadow:0 3px 3px rgba(0,0,0,.2);
+            padding:.5rem;
+            text-transform:uppercase;
+        }
+
+        .footer a{
+            color:#fff;
+        }
+
+        .footer a:hover{
+            color:{color:accent dark};
+        }
+
+        .footer .fas{
+            color:{color:accent} !important;
+            letter-spacing:20px;
+        }
+
+        .taglink:first-letter{
+            color:{color:accent};
+        }
+
+        .post-notes{
+            color:#fff;
+        }
+        .tags .fas{
+            color:#000;
+        }
+
+        a.tags {
+            text-transform: uppercase;
+            color: {color:accent};
+            font-size: .7rem;
+            letter-spacing: .1rem;
+            padding: .5rem;
+        }
+
+        a.tags:hover {
+            color: {color:accent dark};
+        }
+
+        a.tags:last-child{
+            margin-right:0;
+        }
+
+        .tag-footer{
+            margin:1rem 0 3rem 0;
+            text-align:center;
+        }
+
+        .footer-links{
+            margin:0 .5rem;
+            text-shadow:0 1px 2px rgba(0,0,0,.5);
+        }
+
+        /* ------------------ PAGINATION ------------------ */
 
         #pagination{
-            background:rgba(0,0,0,0);
-            width:100%;
-            color: #ffffff;
-            text-shadow: 0 2px 2px rgba(0,0,0,.4);;
-            font-size: 1.2em;
-            text-align: center;
-            margin-top:113px;
+            margin:.5rem 0 1rem 0;
+            text-align:center;
         }
 
-        #pagination a{
-            color:#fff !important;
+        #pagination .fas{
+            color:{color:accent};
+            font-size:1.2rem;
+            text-shadow:0 2px 2px rgba(0,0,0,.2);
         }
 
-        /* font awesome smh */
 
-        #pagination i{
-            color:#fff !important;
-        }
+        /* ----------------------------------- POST STYLING ----------------------------------- */
 
-        /* CONTENT STUFF */
-
-        #content_container {
-            background: #fff;
-            width: 770px;
-            height: 490px;
-            position: absolute;
-            top: 115px;
-            left: 80px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-            font-size: .8em;
-        }
-
-        #content{
-            background:transparent;
-            position:absolute;
-            right:0;
-            width:580px;
-            height:100%;
-            overflow-y:scroll;
-            overflow-x:hidden;
-            padding:10px;
-        }
-
-        /* PHOTOS & PHOTOSETS */
+        /* ------------------ PHOTOS & PHOTOSETS ------------------ */
 
         .photoset {
-            padding:5px;
-            width:100%;
-            text-align:center;
-            margin:auto;
+            max-width:100%;
+            max-height:100%;
+            margin: auto;
         }
 
         .pix img {
-            width:100%;
-            display:block;
-
+            max-width:100%;
+            max-height:100%;
         }
+
 
         .tmblr-full img {
-            width:100%;
-            display:inline-block;
-            height:auto;
-            margin:10px;
-
+            max-width:100%;
+            max-height:100%;
+            display: inline-block;
         }
 
-        .txt img {
-            margin:8px 0;
+        /* ------------------ QUOTE ------------------ */
+
+        /* I don't know if the wrapper is entirely necessary but I'm using it anyway */
+        .quote-wrapper .fas{
+            color:{color:body background};
+            font-size:1.8rem;
+            text-shadow:1px 2px 0 {color:accent},2px 3px 0 {color:accent dark};
         }
 
-
-        /* FOOTER */
-
-        .footer{
-            border-top:1px solid #bbb;
-            background:#fff;
-            padding:5px 0 30px 0;
-            display:block;
-        color:{color:text};
+        .quote{
+            text-align:left;
+            margin:-1.9rem 0 10px 2.4rem;
         }
 
-        .date, .notes{
-            font-size:1.2em;
-        color:{color:text};
-        text-transform:uppercase;
-        font-weight:300;
+        .quote h1{
+            text-transform:none;
+            text-align:left;
+            margin-bottom:.5rem;
+            text-shadow:none;
+            font-family: 'Roboto', sans serif;
         }
 
-        .notes{
-            float:right;
+        /* ------------------ CHAT ------------------ */
+
+        .chat{
+            list-style:none;
+            padding:0 0 6px 0;
         }
 
-        .tags a{
-        color:{color:link};
+        /* ------------------ ASK ------------------ */
+
+        .asker{
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .tags a:hover{
-        color:{color:link hover};
+        /* ------------------ AUDIO ------------------ */
+
+        .tumblr_audio_player{
+            width:50px;
+            height:50px;
+            background:rgb(242,242,242);
+            margin-right:6px;
+            padding:10px;
         }
 
-        /* CREDIT - PLEASE DON'T EDIT THIS */
+        /* ------------------ "VIDEO" ------------------ */
 
-        #credit{
-        color:{color:accent};
-        position:absolute;
-        bottom:5px;
-        right:5px;
-        background:#fff;
-        padding:5px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        .video{
+            text-align:center;
         }
 
+        /* actually just all iframes but shhhhhh */
+        iframe{
+            display: inline-block;
+            margin:auto;
+            max-width:100%;
+            max-height:100%;
+        }
+
+        /* ------------------ MISc SHIT ------------------ */
+
+        @media screen and (max-width:560px){
+
+            /* this is so jank and I hate it */
+            .posts{
+                width:90vw;
+            }
+
+            #posts-wrapper{
+                height: calc(100vh - 7.9rem);
+            }
+
+            .entry{
+                width: 90vw;
+                background: #fff;
+                padding:1rem;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            .header h1 {
+                padding-top: 3rem;
+            }
+        }
 
     </style>
 
@@ -293,138 +455,181 @@
 <body>
 
 
-<div id="sidebar">
-    <div id="sidebar_content">
-        <p>{description}</p>
-    </div>
 
-    <div id="sidebar_links">
-        <a href="{text:sidebar link 1}" class="sidebar_link">{text:sidebar link 1 text}</a>
-        <a href="{text:sidebar link 2}" class="sidebar_link">{text:sidebar link 2 text}</a>
-        <a href="{text:sidebar link 3}" class="sidebar_link">{text:sidebar link 3 text}</a>
-        <a href="{text:sidebar link 4}" class="sidebar_link">{text:sidebar link 4 text}</a>
-        <a href="{text:sidebar link 5}" class="sidebar_link">{text:sidebar link 5 text}</a>
-        <a href="{text:sidebar link 6}" class="sidebar_link">{text:sidebar link 6 text}</a>
-    </div>
+<div class="navigation">
+    <a class="nav" href="/">home</a>
+    <a class="nav" href="/ask">ask</a>
+    <a class="nav" href="/archive">archive</a>
+    <a class="nav" href={text:link 1}>{text:link 1 text}</a>
+    <a class="nav" href={text:link 2}>{text:link 2 text}</a>
+    <a class="nav" href={text:link 3}>{text:link 3 text}</a>
+    <a class="nav" href={text:link 4}>{text:link 4 text}</a>
+    <a class="nav" href={text:link 5}>{text:link 5 text}</a>
+    <a class="nav" href="https://github.com/ectophage"><i class="fas fa-code"></i></a>
+    <div class="bottom-gradient"></div>
+</div>
+<div class="header">
+    <a href="/"><h1>{title}</h1></a>
+    <h2>{Description}</h2>
+</div>
+
+
+
+
+<div id="posts-wrapper">
+
+    <section class="posts">
+        {block:Posts}
+        <div class="entry" id="{PostID}">
+
+
+            <!-- POST: TEXT -->
+            {block:Text}<div class="txt">{block:Title}<h1>{Title}</h1>{/block:Title}{Body}</div>{/block:Text}
+            <!-- / POST: TEXT -->
+
+
+            <!-- POST: LINK -->
+            {block:Link}<div class="txt"><a href="{URL}" class="link" {Target}><h3 style="margin-top:0;">{Name}</h3></a>
+            {block:Description}{Description}{/block:Description}</div>{/block:Link}
+            <!-- / POST: LINK -->
+
+            <!-- POST: PHOTO -->
+            {block:Photo}<center><div class="pix">{LinkOpenTag}<img src="{PhotoURL-HighRes}">{LinkCloseTag}</div></center>
+
+            {block:Caption}{Caption}{/block:Caption}{/block:Photo}
+            <!-- / POST: PHOTO -->
+
+            <!-- POST: PHOTOSET -->
+            {block:Photoset}
+            <div class="set">
+                <div class="pxu">
+                    <div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">
+                        {block:Photos}
+                        <div class="photo-data">
+                            <div class="pxu-photo">
+                                <img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
+                            </div>
+                            <a class="tumblr-box" rel="post-{PostID}" href="{PhotoURL-HighRes}"></a>
+                        </div>
+                        {/block:Photos}
+                    </div>
+                </div>
+            </div>
+            {Caption}
+            {/block:Photoset}
+            <!-- / POST: PHOTOSET -->
+
+
+            <!-- POST: QUOTE -->
+            {block:Quote}
+            <div class="quote-wrapper">
+                <i class="fas fa-quote-left"></i>
+                <div class="quote">
+                    <h1>{Quote}</h1>{block:Source}– {Source}{/block:Source}
+                </div>
+            </div>
+            {/block:Quote}
+            <!-- / POST: QUOTE -->
+
+
+            <!-- POST: CHAT  -->
+            {block:Chat}
+            {block:Title}<h1>{Title}</h1>{/block:Title}
+            <div class="chat">
+                {block:Lines}<li>
+                {block:Label}<b>{Label}</b>{/block:Label}
+                {Line}</li>{/block:Lines}
+            </div>
+            {/block:Chat}
+            <!-- / POST: CHAT -->
+
+
+            <!-- POST: VIDEO -->
+            {block:Video}
+            <div class="video">{Video-500}</div>
+            {block:Caption}{Caption}{/block:Caption}
+            {/block:Video}
+            <!-- / POST: VIDEO -->
+
+
+            <!-- POST: AUDIO -->
+            {block:Audio}
+            <table><tr><td>
+                {block:AudioPlayer}{AudioPlayerWhite}{/block:AudioPlayer}</td><td>
+
+                {block:TrackName}<em>{TrackName}</em>{/block:TrackName}<br/>{block:Artist}<strong>{Artist}</strong>{/block:Artist}<br/>{block:Album}{Album}{/block:Album}</td></tr></table>
+
+            {block:Caption}{Caption}{/block:Caption}
+
+            {/block:Audio}
+            <!-- / POST: AUDIO -->
+
+
+            <!-- POST: ASK -->
+            {block:Answer}<table><tr>
+            <td style="padding-right:10px;"><img src="{AskerPortraitURL-40}"/></td>
+            <td>
+                <span class="asker">{Asker} asked</span><br/>
+                {Question}</td>
+        </table>
+            {Answer}
+            {/block:Answer}
+        </div><!-- / POST: ASK -->
+
+
+        <!-- FOOTER -->
+
+        {block:Date}
+        <div class="footer-wrapper">
+            <div class="footer {TagsAsClasses}">
+                <!-- NOTES -->
+                <a class="footer-links" href="{Permalink}">{NoteCountWithLabel}</a>
+
+                <!-- DATE -->
+                <a class="footer-links" href="{Permalink}">{TimeAgo}</a>
+
+                <!-- REBLOGGED FROM SECTION --->
+                {block:RebloggedFrom}
+                <!-- REBLOGGED FROM -->
+                <a class="footer-links" href="{ReblogParentURL}">via&nbsp;{ReblogParentName}</a>
+                <!-- SOURCE -->
+                <a class="footer-links" href="{ReblogRootURL}">source</a>
+                {/block:RebloggedFrom}
+
+            </div> <!-- / FOOTER -->
+
+            <!-- TAGS -->
+            <div class="tag-footer">
+                {block:HasTags}{block:Tags}
+                <a href="{TagURL}" class="tags"><i class="{text:font awesome tag decoration}"></i>&nbsp;{Tag}</a> &nbsp;
+                {/block:Tags}{/block:HasTags}
+            </div><!-- / TAGS -->
+
+        </div><!-- / FOOTER WRAPPER -->
+
+        {/block:Date}
+
+        {/block:Posts}
+
+        <!-- POST NOTES -->
+        {block:PostNotes}<div class="post-notes">{PostNotes}</div>{/block:PostNotes}
+        <!-- / POST NOTES -->
+
+
+    </section> <!-- / POSTS -->
 
     {block:Pagination}
-    <div id="pagination">
-        {block:PreviousPage}<a href="{PreviousPage}"><i class="fas fa-angle-left"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;{/block:PreviousPage}
+    <div id="pagination"><br/>
+        {block:PreviousPage}<a href="{PreviousPage}"><i class="fas fa-angle-left"></i></a>&nbsp;&nbsp;&nbsp;{/block:PreviousPage}
         {block:NextPage}<a href="{NextPage}"><i class="fas fa-angle-right"></i></a>{/block:NextPage}
     </div><!-- PAGINATION -->
     {/block:Pagination}
+</div>
 
-</div> <!-- SIDEBAR CONTENT -->
-</div> <!-- SIDEBAR -->
-
-
-<!-- BLOG CONTENT CONTAINER -->
-<div id="content_container">
-    <div id="content">
-
-        <section class="posts">
-            {block:Posts}
-            <div class="entry {block:IndexPage}b{select:post size}{/block:IndexPage}{block:PermalinkPage}b{select:permalink post size}{/block:PermalinkPage}" id="{PostID}">
-
-                {block:Text}<div class="txt">{block:Title}<h3 style="margin-top:0;">{Title}</h3>{/block:Title}{Body}</div>{/block:Text}
-
-                {block:Link}<div class="txt"><a href="{URL}" class="link" {Target}><h3 style="margin-top:0;">{Name}</h3></a>
-                {block:Description}{Description}{/block:Description}</div>{/block:Link}
-
-                {block:Photo}<center><div class="pix">{LinkOpenTag}<img src="{PhotoURL-HighRes}">{LinkCloseTag}</div></center>
-
-                {block:Caption}<div class="cap">{Caption}</div>{/block:Caption}{/block:Photo}
+</div> <!-- / POST WRAPPER -->
 
 
-                <!-- PHOTOSET -->
 
-                {block:Photoset}
-                <div class="set"><center><div class="pxu"><div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">{block:Photos}
-                    <div class="photo-data"><div class="pxu-photo"><img src="{PhotoURL-500}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></div><a class="tumblr-box" rel="post-{PostID}" href="{PhotoURL-HighRes}"></a></div>{/block:Photos}</div></div></center></div>
-                {/block:Photoset}
+</div> <!-- / CONTAINER -->
 
-                <!-- / PHOTOSET -->
-
-                <!-- QUOTE POST -->
-
-                {block:Quote}<div class="txt"><center><h1>"{Quote}"</h1></center><br>{block:Source}– {Source}{/block:Source}</p></div>{/block:Quote}
-
-                <!-- /QUOTE POST -->
-
-                {block:Chat}{block:Title}<h3>{Title}</h3>{/block:Title}
-
-                <div class="txt"><div style="padding:10px 0px 10px 0px">{block:Lines}<li style="list-style-type:none;">{block:Label}<b>{Label}</b>{/block:Label} {Line}</li>{/block:Lines}</ul></div></div>{/block:Chat}
-
-                {block:Video}<div class="video"><center>{Video-500}</center></div>
-
-                {block:Caption}<div class="cap">{Caption}</div>{/block:Caption}{/block:Video}
-
-                {block:Audio}<div class="audio">
-                <div class="button"></div>
-                {block:AudioPlayer}{block:ifblackaudioplayer}{AudioPlayerBlack}{/block:ifblackaudioplayer}{block:ifnotblackaudioplayer}{AudioPlayerWhite}{/block:ifnotblackaudioplayer}{/block:AudioPlayer}
-                <div class="music"><center><b style="font-size:1.2em; text-transform:uppercase; line-height:1em;">{block:TrackName}{TrackName}{/block:TrackName}</b>{block:Artist} {Artist}{/block:Artist}{block:Album},
-                    {Album}
-                    {/block:Album}</center></div>
-
-                {block:Caption}<div class="cap">{Caption}</div>{/block:Caption}</div>{/block:Audio}
-
-                {block:ContentSource}
-                <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
-                width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
-                {/block:SourceLogo}
-                {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
-                {/block:ContentSource}
-
-                <!-- {block:NoRebloggedFrom}
-                {block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
-                {/block:NoRebloggedFrom} -->
-
-                {block:Answer}<table><tbody><tr><td><img src="{AskerPortraitURL-40}"></img></td><td><b style="text-transform:uppercase;">{Asker} asked:</b> {Question}</td></tr></tbody></table>
-                <div class="answer">{Answer}</div>
-                {/block:Answer}</div>
-
-
-            <!-- FOOTER -->
-
-            {block:Date}
-            <div class="footer">
-                <a href="{Permalink}" class="date"><strong>{DayOfMonthWithZero}</strong> {Month}</a>
-                <a href="{Permalink}" class="notes">NOTES <strong>{NoteCount}</a></strong>
-
-                <div class="tags">{block:PermalinkPage}{block:RebloggedFrom}<a href="{ReblogParentURL}">VIA</a> / <a href="{ReblogRootURL}">SOURCE</a> {/block:RebloggedFrom}{/block:PermalinkPage}{block:HasTags}{block:Tags}<i class="{text:tag decoration}"></i> <a href="{TagURL}">{Tag}</a> &nbsp;{/block:Tags}{/block:HasTags}</div>
-            </div><!-- FOOTER -->
-
-
-            <style type="text/css">.content .entry {border-radius:0;}</style>
-            {/block:Date}
-
-            {/block:Posts}{block:PostNotes}<div class="permalink">{PostNotes}</div>{/block:PostNotes}
-        </section>
-
-        <!-- MAKE PHOTOSETS WORK - FROM http://gukthemes.com/post/149193631486/tutorial-540pxresponsive-photosets -->
-        <link href="//static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet" type="text/css"/>
-        <script src="//static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
-        <link href="//static.tumblr.com/wupwnyt/qWVoc4phj/resizing.css" rel="stylesheet" type="text/css"/>
-
-        <script>
-            // PXU Photoset Script by Pixel Union
-            $(document).ready(function(){
-                $('.photo-slideshow').pxuPhotoset({
-                    lightbox:true,
-                    rounded:false,
-                    gutter:'0px',
-                    borderRadius:'0px',
-                    photoset:'.photo-slideshow',
-                    photoWrap:'.photo-data',
-                    photo:'.pxu-photo'
-                });
-            });
-        </script>
-
-
-    </div><!-- CONTENT -->
-</div><!-- CONTENT CONTAINER -->
-
-<div id="credit"><a href="https://ectophage.tumblr.com"><i class='fas fa-code'></i></a></div>
 </body>
-</html>
